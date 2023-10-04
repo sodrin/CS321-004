@@ -24,10 +24,11 @@ git config --global user.email "YOUR_EMAIL"
 git remote add origin https://github.com/sodrin/CS321-004.git
 ```
 
-Switch to your production branch
+Make a new production branch to create changes to master
 ```sh
-git checkout "PROD_NAME_HERE"
+git checkout -b "PROD_NAME_HERE"
 ```
+The -b flag is shorthand for the git branch (to create a branch) and git checkout (to switch to branch)
 (this will update the current folder with the files from your current branch)
 (make the necessary changes you want)
 
@@ -47,4 +48,4 @@ git checkout master
 git merge "branchtomergename"
 ```
 
-(You can also have others check the merge code by opening a pull request on github instead)
+(You can also have others check the merge code by opening a pull request on github instead which is recommended instead of a force push)

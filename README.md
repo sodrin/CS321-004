@@ -58,6 +58,13 @@ git pull
 ```
 to make sure the master branch on your machine is the latest version.
 
+Don't forget to delete the branch you used to make the changes. This should be prompted after an approved pull request in the github page.
+
+To remove it from your machine, you can simple do
+```sh
+git branch -d "PROD_NAME_HERE"
+```
+
 If you want to merge your changes to the master branch forcefully without pull request, you can switch to it and merge like this
 ```sh
 git checkout master

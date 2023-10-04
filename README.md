@@ -36,7 +36,7 @@ The -b flag is shorthand for the git branch (to create a branch) and git checkou
 (make the necessary changes you want)
 
 When you're ready to commit and push changes, do the following
-The -a flag adds all files to the commit, if you want to do individual files, you can do git add filename instead
+The -a flag adds all files to the commit, if you want to do individual files, you can do git add filename instead.
 The -m flag adds a message to the commit, it should be a brief statement on what the changes are
 ```sh
 git commit -am "commit message"
@@ -60,7 +60,7 @@ to make sure the master branch on your machine is the latest version.
 
 Don't forget to delete the branch you used to make the changes. This should be prompted after an approved pull request in the github page.
 
-To remove it from your machine, you can simple do
+To remove it from your machine, you can simply do
 ```sh
 git branch -d "PROD_NAME_HERE"
 ```

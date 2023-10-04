@@ -13,7 +13,8 @@ Declaration of Financial Support
 
 ## How to GitHub
 
-Go to desired folder directory to work on the code, git bash there, and run the following commands
+Go to desired folder directory to work on the code, git bash there, and run the following commands.
+
 Sets your username
 ```sh
 git config --global user.name "YOUR_USERNAME"
@@ -32,10 +33,13 @@ Make a new production branch to create changes to master, this will update the d
 git checkout -b "PROD_NAME_HERE"
 ```
 The -b flag is shorthand for the git branch (to create a branch) and git checkout (to switch to branch)
+
 (this will update the current folder with the files from your current branch)
+
 (make the necessary changes you want)
 
-When you're ready to commit and push changes, do the following
+When you're ready to commit and push changes, do the following.
+
 The -a flag adds all files to the commit, if you want to do individual files, you can do git add filename instead.
 The -m flag adds a message to the commit, it should be a brief statement on what the changes are
 ```sh

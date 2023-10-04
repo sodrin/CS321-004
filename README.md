@@ -34,9 +34,9 @@ git checkout -b "PROD_NAME_HERE"
 ```
 The -b flag is shorthand for the git branch (to create a branch) and git checkout (to switch to branch)
 
-(this will update the current folder with the files from your current branch)
+(This will update the current folder with the files from your current branch. Everytime you use the git checkout command, the folder directory on your machine will be updated with the selected branch's files.)
 
-(make the necessary changes you want)
+Now go and make the changes you want.
 
 When you're ready to commit and push changes, do the following.
 
@@ -69,10 +69,3 @@ To remove it from your machine, you can simply do
 git branch -d "PROD_NAME_HERE"
 ```
 
-If you want to merge your changes to the master branch forcefully without pull request, you can switch to it and merge like this
-```sh
-git checkout master
-```
-```sh
-git merge "branchtomergename"
-```

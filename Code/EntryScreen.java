@@ -4,7 +4,7 @@
 
 public class EntryScreen {
     
-    private int currentForm;
+    private FinancialSupportForm currentForm;
 
     public boolean submitForm(){
         return false;

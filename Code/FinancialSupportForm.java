@@ -20,6 +20,19 @@ public class FinancialSupportForm{
 
   }
 
+  public FinancialSupportForm(int ID, String FirstName,  String LastName,  String SSN,  String ApplicantEmail,  String RecipientFirstName,  String RecipientLastName,  String RecipientDateOfBirth,  String RecipientAlienNumber,  String RecipientEmail){
+    this.ID = ID;
+    this.FirstName = FirstName;
+    this.LastName = LastName;
+    this.SSN = SSN;
+    this.ApplicantEmail = ApplicantEmail;
+    this.RecipientFirstName = RecipientFirstName;
+    this.RecipientLastName = RecipientLastName;
+    this.RecipientDateOfBirth = RecipientDateOfBirth;
+    this.RecipientAlienNumber = RecipientAlienNumber;
+    this.RecipientEmail = RecipientEmail;
+  }
+
   //validation method
   public void validate(){
 
@@ -31,7 +44,7 @@ public class FinancialSupportForm{
   }
 
   //getform method
-  public FinancialSupportForm getForm(){
+  public FinancialSupportForm getForm(int ID){
     return null;
   }
 }

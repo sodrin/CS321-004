@@ -6,10 +6,39 @@ public class WorkflowTableTester {
 
     WorkflowTable table = new WorkflowTable();
 
-    @Test
-    void test1() {
+    // TODO: Faker class that can generate fake objects for testing
 
-        assertEquals(table, form.GetNextPendingReview());
-        assertEquals(table, form.GetNextPendingApproval());
+    // Name tests for what we want to test
+
+    // Test inserting and removing 3 forms with queue-like functionality
+    // TODO: Assumes getNextPendingReview automatically removes the form from the workflow table
+    @Test
+    void getReviewsInOrder() {
+        FinancialSupportForm firstForm = Faker.fakeFinancialSupportForm();
+        FinancialSupportForm secondForm = Faker.fakeFinancialSupportForm();
+        FinancialSupportForm thirdForm = Faker.fakeFinancialSupportForm();
+        table.addPendingReview(firstForm);
+        table.addPendingReview(secondForm);
+        table.addPendingReview(thirdForm);
+        assertEquals(table.getNextPendingReview(), firstForm);
+        assertEquals(table.getNextPendingReview(), secondForm);
+        assertEquals(table.getNextPendingReview(), thirdForm);
     }
+
+    // Test inserting and removing 3 forms with queue-like functionality
+    // TODO: Assumes getNextPendingApproval automatically removes the form from the workflow table
+    @Test
+    void getApprovalsInOrder() {
+        FinancialSupportForm firstForm = Faker.fakeFinancialSupportForm();
+        FinancialSupportForm secondForm = Faker.fakeFinancialSupportForm();
+        FinancialSupportForm thirdForm = Faker.fakeFinancialSupportForm();
+        table.addPendingApproval(firstForm);
+        table.addPendingApproval(secondForm);
+        table.addPendingApproval(thirdForm);
+        assertEquals(table.getNextPendingApproval(), firstForm);
+        assertEquals(table.getNextPendingApproval(), secondForm);
+        assertEquals(table.getNextPendingApproval(), thirdForm);
+    }
+
+
 }

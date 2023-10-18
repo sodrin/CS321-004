@@ -2,19 +2,19 @@ public class WorkflowTable{
   int[] PendingReview;
   int[] PendingApproval;
 
-  FinancialSupportForm GetNextPendingReview(){
+  FinancialSupportForm getNextPendingReview(){
     return null;
   }
 
-  FinancialSupportForm GetNextPendingApproval(){
+  FinancialSupportForm getNextPendingApproval(){
     return null;
   }
 
-  Boolean AddPendingReview(FinancialSupportForm form){
+  Boolean addPendingReview(FinancialSupportForm form){
     return false;
   }
 
-  Boolean AddPendingApproval(FinancialSupportForm form){
+  Boolean addPendingApproval(FinancialSupportForm form){
     return false;
   }
 }

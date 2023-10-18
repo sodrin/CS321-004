@@ -6,7 +6,8 @@ public class WorkflowTableTester {
 
     WorkflowTable table = new WorkflowTable();
 
-    // TODO: Faker class that can generate fake objects for testing
+    // TODO: Faker class that can generate fake objects for testing,
+    //   or put it somewhere else, maybe a factory method in the class itself...
 
     // Name tests for what we want to test
 

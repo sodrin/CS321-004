@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
 * This is the financial support form class which contains form information.
 *
@@ -11,7 +13,7 @@ public class FinancialSupportForm{
   String ApplicantEmail;
   String RecipientFirstName;
   String RecipientLastName;
-  String RecipientDateOfBirth;
+  Date RecipientDateOfBirth;
   String RecipientAlienNumber;
   String RecipientEmail;
 
@@ -20,7 +22,7 @@ public class FinancialSupportForm{
 
   }
 
-  public FinancialSupportForm(int ID, String FirstName,  String LastName,  String SSN,  String ApplicantEmail,  String RecipientFirstName,  String RecipientLastName,  String RecipientDateOfBirth,  String RecipientAlienNumber,  String RecipientEmail){
+  public FinancialSupportForm(int ID, String FirstName,  String LastName,  String SSN,  String ApplicantEmail,  String RecipientFirstName,  String RecipientLastName,  Date RecipientDateOfBirth,  String RecipientAlienNumber,  String RecipientEmail){
     this.ID = ID;
     this.FirstName = FirstName;
     this.LastName = LastName;
@@ -34,8 +36,8 @@ public class FinancialSupportForm{
   }
 
   //validation method
-  public void validate(){
-
+  public boolean validate(){
+    return false;
   }
 
   //saveform method
@@ -44,7 +46,87 @@ public class FinancialSupportForm{
   }
 
   //getform method
-  public FinancialSupportForm getForm(int ID){
+  public static FinancialSupportForm getForm(int ID){
     return null;
+  }
+
+  public int getID() {
+    return ID;
+  }
+
+  public void setID(int iD) {
+    ID = iD;
+  }
+
+  public String getFirstName() {
+    return FirstName;
+  }
+
+  public void setFirstName(String firstName) {
+    FirstName = firstName;
+  }
+
+  public String getLastName() {
+    return LastName;
+  }
+
+  public void setLastName(String lastName) {
+    LastName = lastName;
+  }
+
+  public String getSSN() {
+    return SSN;
+  }
+
+  public void setSSN(String sSN) {
+    SSN = sSN;
+  }
+
+  public String getApplicantEmail() {
+    return ApplicantEmail;
+  }
+
+  public void setApplicantEmail(String applicantEmail) {
+    ApplicantEmail = applicantEmail;
+  }
+
+  public String getRecipientFirstName() {
+    return RecipientFirstName;
+  }
+
+  public void setRecipientFirstName(String recipientFirstName) {
+    RecipientFirstName = recipientFirstName;
+  }
+
+  public String getRecipientLastName() {
+    return RecipientLastName;
+  }
+
+  public void setRecipientLastName(String recipientLastName) {
+    RecipientLastName = recipientLastName;
+  }
+
+  public Date getRecipientDateOfBirth() {
+    return RecipientDateOfBirth;
+  }
+
+  public void setRecipientDateOfBirth(Date recipientDateOfBirth) {
+    RecipientDateOfBirth = recipientDateOfBirth;
+  }
+
+  public String getRecipientAlienNumber() {
+    return RecipientAlienNumber;
+  }
+
+  public void setRecipientAlienNumber(String recipientAlienNumber) {
+    RecipientAlienNumber = recipientAlienNumber;
+  }
+
+  public String getRecipientEmail() {
+    return RecipientEmail;
+  }
+
+  public void setRecipientEmail(String recipientEmail) {
+    RecipientEmail = recipientEmail;
   }
 }

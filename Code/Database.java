@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
 public class Database {
-    
-    public static ArrayList forms;
+    public static ArrayList<FinancialSupportForm> forms;
 }

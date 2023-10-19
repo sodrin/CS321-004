@@ -5,6 +5,8 @@ import java.util.Date;
 *
 */
 
+import java.util.Date;
+
 public class FinancialSupportForm{
   int ID;
   String FirstName;
@@ -37,7 +39,11 @@ public class FinancialSupportForm{
 
   //validation method
   public boolean validate(){
-    return false;
+    //date representing 18 years ago
+    Date requirement = new Date(2005, 10, 18);
+    Date comparison = this.RecipientDateOfBirth;
+    boolean result = comparison.after(requirement);
+    return result;
   }
 
   //saveform method

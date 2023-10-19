@@ -1,20 +1,32 @@
+import java.util.Queue;
+
 public class WorkflowTable{
-  int[] PendingReview;
-  int[] PendingApproval;
+  Queue<Integer> pendingReviews;
+  Queue<Integer> pendingApprovals;
 
-  FinancialSupportForm GetNextPendingReview(){
-    return null;
+  FinancialSupportForm BO = new FinancialSupportForm();
+
+  FinancialSupportForm getNextPendingReview(){
+    Integer formID = pendingReviews.poll();
+    if (formID == null) return null;
+    // TODO: We need some static way to get forms from form IDs, unless
+    //   we are using one global BusinessObject instance.
+    return BO.getForm(formID);
   }
 
-  FinancialSupportForm GetNextPendingApproval(){
-    return null;
+  FinancialSupportForm getNextPendingApproval(){
+    Integer formID = pendingApprovals.poll();
+    if (formID == null) return null;
+    return BO.getForm(formID);
   }
 
-  Boolean AddPendingReview(FinancialSupportForm form){
-    return false;
+  Boolean addPendingReview(FinancialSupportForm form){
+    Boolean result = pendingReviews.offer(form.ID);
+    return result;
   }
 
-  Boolean AddPendingApproval(FinancialSupportForm form){
-    return false;
+  Boolean addPendingApproval(FinancialSupportForm form){
+    Boolean result = pendingApprovals.offer(form.ID);
+    return result;
   }
 }

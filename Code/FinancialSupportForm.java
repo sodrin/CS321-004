@@ -3,6 +3,8 @@
 *
 */
 
+import java.util.Date;
+
 public class FinancialSupportForm{
   int ID;
   String FirstName;
@@ -11,7 +13,7 @@ public class FinancialSupportForm{
   String ApplicantEmail;
   String RecipientFirstName;
   String RecipientLastName;
-  String RecipientDateOfBirth;
+  Date RecipientDateOfBirth;
   String RecipientAlienNumber;
   String RecipientEmail;
 
@@ -20,7 +22,7 @@ public class FinancialSupportForm{
 
   }
 
-  public FinancialSupportForm(int ID, String FirstName,  String LastName,  String SSN,  String ApplicantEmail,  String RecipientFirstName,  String RecipientLastName,  String RecipientDateOfBirth,  String RecipientAlienNumber,  String RecipientEmail){
+  public FinancialSupportForm(int ID, String FirstName,  String LastName,  String SSN,  String ApplicantEmail,  String RecipientFirstName,  String RecipientLastName,  Date RecipientDateOfBirth,  String RecipientAlienNumber,  String RecipientEmail){
     this.ID = ID;
     this.FirstName = FirstName;
     this.LastName = LastName;
@@ -34,8 +36,12 @@ public class FinancialSupportForm{
   }
 
   //validation method
-  public void validate(){
-
+  public boolean validate(){
+    //date representing 18 years ago
+    Date requirement = new Date(2005, 10, 18);
+    Date comparison = this.RecipientDateOfBirth;
+    boolean result = comparison.after(requirement);
+    return result;
   }
 
   //saveform method

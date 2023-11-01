@@ -1,3 +1,5 @@
+package group28;
+
 import java.util.Queue;
 
 public class WorkflowTable{

@@ -10,9 +10,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "javafx/financial-support" ]
+    branches: [ "master", "javafx/financial-support" ]
   pull_request:
-    branches: [ "javafx/financial-support" ]
+    branches: [ "maven", "javafx/financial-support" ]
 
 jobs:
   build:

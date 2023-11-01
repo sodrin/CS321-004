@@ -12,4 +12,4 @@ Running all tests: `mvn test`
 
 Generating jar: `mvn package`. Note this runs all junit tests, and fails if any tests fail.
 
-Currently the only way of running the project is `mvn javafx:run`, it uses App.java as the main class. I have not figured out how to change this yet.
+Currently the only way of running the project is `mvn javafx:run`, it uses App.java as the main class. I have not figured out how to change this yet. It does not run JUnit tests before running.

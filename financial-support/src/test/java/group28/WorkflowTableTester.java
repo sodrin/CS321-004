@@ -16,9 +16,9 @@ public class WorkflowTableTester {
     // TODO: Assumes getNextPendingReview automatically removes the form from the workflow table
     @Test
     void getReviewsInOrder() {
-        FinancialSupportForm firstForm = Faker.fakeFinancialSupportForm();
-        FinancialSupportForm secondForm = Faker.fakeFinancialSupportForm();
-        FinancialSupportForm thirdForm = Faker.fakeFinancialSupportForm();
+        FinancialSupportForm firstForm = Faker.getFakeFinancialSupportForm();
+        FinancialSupportForm secondForm = Faker.getFakeFinancialSupportForm();
+        FinancialSupportForm thirdForm = Faker.getFakeFinancialSupportForm();
         table.addPendingReview(firstForm);
         table.addPendingReview(secondForm);
         table.addPendingReview(thirdForm);
@@ -31,9 +31,9 @@ public class WorkflowTableTester {
     // TODO: Assumes getNextPendingApproval automatically removes the form from the workflow table
     @Test
     void getApprovalsInOrder() {
-        FinancialSupportForm firstForm = Faker.fakeFinancialSupportForm();
-        FinancialSupportForm secondForm = Faker.fakeFinancialSupportForm();
-        FinancialSupportForm thirdForm = Faker.fakeFinancialSupportForm();
+        FinancialSupportForm firstForm = Faker.getFakeFinancialSupportForm();
+        FinancialSupportForm secondForm = Faker.getFakeFinancialSupportForm();
+        FinancialSupportForm thirdForm = Faker.getFakeFinancialSupportForm();
         table.addPendingApproval(firstForm);
         table.addPendingApproval(secondForm);
         table.addPendingApproval(thirdForm);

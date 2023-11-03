@@ -1,15 +1,22 @@
 package group28;
 
+import java.io.IOException;
+
 import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class ReviewScreen {
+	private FinancialSupportForm currentForm;
     
     public void showScreen(){
-        Label label = new Label("I'm a Label the review screen");
+        Label label = new Label("This is the review screen!");
 
 		StackPane layout = new StackPane();
 		layout.getChildren().add(label);
@@ -23,4 +30,11 @@ public class ReviewScreen {
 
 		newWindow.show();
     }
+
+	public boolean sendToApproval(){
+		return true;
+	}
+	public boolean denyForm(){
+		return true;
+	}
 }

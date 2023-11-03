@@ -32,18 +32,21 @@ public class ApprovalScreen {
 
 			ApprovalScreenController controller = fxmlView.getController();
 
-			controller.setApplicantFirstName("Jane");
-			controller.setApplicantLastName("Doe");
-			controller.setApplicantSSN("555-55-5555");
-			controller.setApplicantEmail("JaneDoe@example.com");
+			// controller.setApplicantFirstName("Jane");
+			// controller.setApplicantLastName("Doe");
+			// controller.setApplicantSSN("555-55-5555");
+			// controller.setApplicantEmail("JaneDoe@example.com");
 
-			controller.setRecipientFirstName("John");
-			controller.setRecipientLastName("Smith");
-			controller.setRecipientDateOfBirth("01-01-1999");
-			controller.setRecipientAlienNumber("55-55-55-555");
-			controller.setRecipientEmail("JohnSmith@example.co.uk");
+			// controller.setRecipientFirstName("John");
+			// controller.setRecipientLastName("Smith");
+			// controller.setRecipientDateOfBirth("01-01-1999");
+			// controller.setRecipientAlienNumber("55-55-55-555");
+			// controller.setRecipientEmail("JohnSmith@example.co.uk");
+			FinancialSupportForm fakeForm = Faker.getFakeFinancialSupportForm();
+			controller.displayForm(fakeForm);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			// Error loading the FXML
+			System.out.println("Error loading the ApprovalScreen.fxml file. Make sure it exists!");
 			e.printStackTrace();
 		}
     }

@@ -16,7 +16,7 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="399.0" prefWidth="446.0">
          <children>
-            <Button fx:id="nextFormButton" mnemonicParsing="false" onAction="#test" text="Get Next Form for Approval" />
+            <Button fx:id="nextFormButton" mnemonicParsing="false" onAction="#nextFormButtonPressed" text="Get Next Form for Approval" />
             <GridPane alignment="TOP_CENTER" prefHeight="91.0" prefWidth="502.0" VBox.vgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.4000244140625" minWidth="10.0" prefWidth="160.4000244140625" />
@@ -68,8 +68,8 @@
             </GridPane>
             <ButtonBar buttonMinWidth="100.0" buttonOrder="U" prefHeight="40.0" prefWidth="200.0" VBox.vgrow="NEVER">
               <buttons>
-                  <Button fx:id="reviewButton" accessibleHelp="Make the form go back to the review step" accessibleText="Send back to review" mnemonicParsing="false" text="Send Back to Review" />
-                  <Button fx:id="approveButton" mnemonicParsing="false" text="Approve Form" />
+                  <Button fx:id="reviewButton" accessibleHelp="Make the form go back to the review step" accessibleText="Send back to review" mnemonicParsing="false" onAction="#reviewButtonPressed" text="Send Back to Review" />
+                  <Button fx:id="approveButton" mnemonicParsing="false" onAction="#approveButtonPressed" text="Approve Form" />
               </buttons>
                <VBox.margin>
                   <Insets />

@@ -119,15 +119,25 @@ public class ApprovalScreenController {
     }
 
 
+    // Event listeners
+
     public void nextFormButtonPressed() {
         System.out.println("Requesting new form...");
+        // TODO: Link to business object instead of generating fake form here
+        FinancialSupportForm fakeForm = Faker.getFakeFinancialSupportForm();
+        displayForm(fakeForm);
+        formMode();
     }
 
     public void reviewButtonPressed() {
         System.out.println("Sending current form back to review...");
+        clearForm();
+        noFormMode();
     }
 
     public void approveButtonPressed() {
         System.out.println("Approving current form...");
+        clearForm();
+        noFormMode();
     }
 }

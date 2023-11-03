@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<FlowPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group28.ApprovalScreenController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="399.0" prefWidth="446.0">
+         <children>
+            <Button fx:id="nextFormButton" mnemonicParsing="false" onAction="#test" text="Get Next Form for Approval" />
+            <GridPane alignment="TOP_CENTER" prefHeight="91.0" prefWidth="502.0" VBox.vgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.4000244140625" minWidth="10.0" prefWidth="160.4000244140625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.20001220703125" minWidth="10.0" prefWidth="155.5999755859375" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="70.0" text="Applicant" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="First Name: " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <TextField fx:id="APPLICANT_FNAME" editable="false" prefHeight="26.0" prefWidth="256.0" text="APPLICANT_FNAME" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Last Name: " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                  <TextField fx:id="APPLICANT_LNAME" editable="false" prefHeight="26.0" prefWidth="256.0" text="APPLICANT_LNAME" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="SSN: " GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                  <TextField fx:id="APPLICANT_SSN" editable="false" prefHeight="26.0" prefWidth="256.0" text="APPLICANT_SSN" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Email: " GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                  <TextField fx:id="APPLICANT_EMAIL" editable="false" prefHeight="26.0" prefWidth="256.0" text="APPLICANT_EMAIL" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="Recipient" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="First Name: " GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                  <TextField fx:id="RECIPIENT_FNAME" editable="false" prefHeight="26.0" prefWidth="256.0" text="RECIPIENT_FNAME" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label text="Last Name: " GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                  <TextField fx:id="RECIPIENT_LNAME" editable="false" prefHeight="26.0" prefWidth="256.0" text="RECIPIENT_LNAME" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label text="Date of Birth: " GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+                  <TextField fx:id="RECIPIENT_DOB" editable="false" prefHeight="26.0" prefWidth="256.0" text="RECIPIENT_DOB" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Label text="Alien Number: " GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+                  <TextField fx:id="RECIPIENT_ALIEN_NUMBER" editable="false" prefHeight="26.0" prefWidth="256.0" text="RECIPIENT_ALIEN_NUMBER" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <Label text="Email: " GridPane.halignment="RIGHT" GridPane.rowIndex="10" />
+                  <TextField fx:id="RECIPIENT_EMAIL" editable="false" prefHeight="26.0" prefWidth="256.0" text="RECIPIENT_EMAIL" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+               </children>
+            </GridPane>
+            <ButtonBar buttonMinWidth="100.0" buttonOrder="U" prefHeight="40.0" prefWidth="200.0" VBox.vgrow="NEVER">
+              <buttons>
+                  <Button fx:id="reviewButton" accessibleHelp="Make the form go back to the review step" accessibleText="Send back to review" mnemonicParsing="false" text="Send Back to Review" />
+                  <Button fx:id="approveButton" mnemonicParsing="false" text="Approve Form" />
+              </buttons>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ButtonBar>
+         </children>
+         <FlowPane.margin>
+            <Insets top="10.0" />
+         </FlowPane.margin>
+      </VBox>
+   </children>
+</FlowPane>

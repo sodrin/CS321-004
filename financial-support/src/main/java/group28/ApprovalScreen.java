@@ -26,13 +26,22 @@ public class ApprovalScreen {
 			FXMLLoader fxmlView = new FXMLLoader(getClass().getResource("fxml/ApprovalScreen.fxml"));
 			Scene scene = new Scene(fxmlView.load());
 			Stage newWindow = new Stage();
-			newWindow.setTitle("Approval");
+			newWindow.setTitle("Form Approval UI");
 			newWindow.setScene(scene);
 			newWindow.show();
 
 			ApprovalScreenController controller = fxmlView.getController();
 
-			controller.changeApplicantEmail("Test EMAIL");
+			controller.setApplicantFirstName("Jane");
+			controller.setApplicantLastName("Doe");
+			controller.setApplicantSSN("555-55-5555");
+			controller.setApplicantEmail("JaneDoe@example.com");
+
+			controller.setRecipientFirstName("John");
+			controller.setRecipientLastName("Smith");
+			controller.setRecipientDateOfBirth("01-01-1999");
+			controller.setRecipientAlienNumber("55-55-55-555");
+			controller.setRecipientEmail("JohnSmith@example.co.uk");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

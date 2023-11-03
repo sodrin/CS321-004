@@ -31,6 +31,44 @@ public class ApprovalScreenController {
     @FXML
     private Button approveButton;
 
+    public void displayForm(FinancialSupportForm form) {
+        setApplicantFirstName(form.FirstName);
+        setApplicantLastName(form.LastName);
+        setApplicantSSN(form.SSN);
+        setApplicantEmail(form.ApplicantEmail);
+        setRecipientFirstName(form.RecipientFirstName);
+        setRecipientLastName(form.RecipientLastName);
+        setRecipientDateOfBirth(form.RecipientDateOfBirth.toString());
+        setRecipientAlienNumber(form.RecipientAlienNumber);
+        setRecipientEmail(form.RecipientEmail);
+    }
+
+    public void clearForm() {
+        setApplicantFirstName("N/A");
+        setApplicantLastName("N/A");
+        setApplicantSSN("N/A");
+        setApplicantEmail("N/A");
+        setRecipientFirstName("N/A");
+        setRecipientLastName("N/A");
+        setRecipientDateOfBirth("N/A");
+        setRecipientAlienNumber("N/A");
+        setRecipientEmail("N/A");
+    }
+
+    public void formMode() {
+        setDisableNextFormButton(true);
+        setDisableApproveButton(false);
+        setDisableReviewButton(false);
+    }
+
+    public void noFormMode() {
+        setDisableNextFormButton(false);
+        setDisableApproveButton(true);
+        setDisableReviewButton(true);
+    }
+
+    // Granular control below
+
     public void setApplicantFirstName(String newString) {
         APPLICANT_FNAME.setText(newString);
     }

@@ -2,53 +2,37 @@ package group28;
 
 import java.io.IOException;
 
-import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+/**
+ * ApprovalScreen handles creation of the window for the approval process.
+ */
 public class ApprovalScreen {
-
-	@FXML private TextField APPLICANT_EMAIL;
     
+	// Entry code for the ApprovalScreen class
     public void showScreen(){
-        // Label label = new Label("I'm a Label the approval screen");
-
-		// StackPane layout = new StackPane();
-		// layout.getChildren().add(label);
-		
+		// Try/catch block because we read for a file that _should_ always exist, but technically could be not there
 		try {
+			// Load the FXML template into the scene
 			FXMLLoader fxmlView = new FXMLLoader(getClass().getResource("fxml/ApprovalScreen.fxml"));
 			Scene scene = new Scene(fxmlView.load());
+
+			// Set the stage and show the window
 			Stage newWindow = new Stage();
 			newWindow.setTitle("Form Approval UI");
 			newWindow.setScene(scene);
 			newWindow.show();
 
+			// Initialize the form's state
 			ApprovalScreenController controller = fxmlView.getController();
 			controller.clearForm();
 			controller.noFormMode();
-
-			// FinancialSupportForm fakeForm = Faker.getFakeFinancialSupportForm();
-			// controller.displayForm(fakeForm);
 		} catch (IOException e) {
-			// Error loading the FXML
+			// Error loading the FXML, can't load the screen.
 			System.out.println("Error loading the ApprovalScreen.fxml file. Make sure it exists!");
 			e.printStackTrace();
 		}
     }
-	/*
-	 * Visible attributes of a form:
-	 * Applicant first / last name
-	 * SSN
-	 * Applicant Email
-	 * Recipient first / last name
-	 * Recipient DOB, Alien number
-	 * Recipient Email
-	 */
 }

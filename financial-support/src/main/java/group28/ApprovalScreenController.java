@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class ApprovalScreenController {
+
+    // Text Fields in ApprovalScreen.fxml
     @FXML
     private TextField APPLICANT_FNAME;
     @FXML
@@ -24,6 +26,7 @@ public class ApprovalScreenController {
     @FXML
     private TextField RECIPIENT_EMAIL;
 
+    // Buttons in ApprovalScreen.fxml
     @FXML
     private Button nextFormButton;
     @FXML
@@ -31,6 +34,7 @@ public class ApprovalScreenController {
     @FXML
     private Button approveButton;
 
+    // Load the information from an entire form into the text fields
     public void displayForm(FinancialSupportForm form) {
         setApplicantFirstName(form.FirstName);
         setApplicantLastName(form.LastName);
@@ -43,6 +47,7 @@ public class ApprovalScreenController {
         setRecipientEmail(form.RecipientEmail);
     }
 
+    // Clear all text fields, replace with N/A to indicate no form is loaded.
     public void clearForm() {
         setApplicantFirstName("N/A");
         setApplicantLastName("N/A");
@@ -55,12 +60,14 @@ public class ApprovalScreenController {
         setRecipientEmail("N/A");
     }
 
+    // Form mode disables the next form request button, and enables the decision buttons
     public void formMode() {
         setDisableNextFormButton(true);
         setDisableApproveButton(false);
         setDisableReviewButton(false);
     }
 
+    // No Form mode enables the next form request button, and disables the decision buttons
     public void noFormMode() {
         setDisableNextFormButton(false);
         setDisableApproveButton(true);
@@ -119,7 +126,7 @@ public class ApprovalScreenController {
     }
 
 
-    // Event listeners
+    // Event listeners for the buttons
 
     public void nextFormButtonPressed() {
         System.out.println("Requesting new form...");

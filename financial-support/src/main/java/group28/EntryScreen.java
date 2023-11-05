@@ -117,10 +117,8 @@ public class EntryScreen {
         catch(Exception e){
             return false;
         }
-
-        Random rand = new Random();
         
-        currentForm = new FinancialSupportForm(rand.nextInt(999999), FirstName, LastName, SSN, ApplicantEmail, RecipientFirstName, RecipientLastName, date, RecipientAlienNumber, RecipientEmail);
+        currentForm = new FinancialSupportForm(FirstName, LastName, SSN, ApplicantEmail, RecipientFirstName, RecipientLastName, date, RecipientAlienNumber, RecipientEmail);
 
         currentForm.validate();
         currentForm.saveForm();

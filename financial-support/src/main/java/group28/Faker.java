@@ -11,7 +11,7 @@ public class Faker {
     private static Random random = new Random();
 
     public static FinancialSupportForm getFakeFinancialSupportForm() {
-        return new FinancialSupportForm(0,
+        return new FinancialSupportForm(
             getRandomFirstName(),
             getRandomLastName(),
             getRandomSSN(),
@@ -20,7 +20,8 @@ public class Faker {
             getRandomLastName(),
             getRandomDateOfBirth(),
             getRandomAlienNumber(),
-            getRandomEmail());
+            getRandomEmail()
+        );
     }
 
     public static String getRandomFirstName() {

@@ -10,6 +10,8 @@ import java.util.Date;
 import java.util.Date;
 
 public class FinancialSupportForm{
+  private static int idCounter = 0;
+
   int ID;
   String FirstName;
   String LastName;
@@ -21,12 +23,12 @@ public class FinancialSupportForm{
   String RecipientAlienNumber;
   String RecipientEmail;
 
-  // constructor
-  public FinancialSupportForm(){
+  // Empty contructor
+  public FinancialSupportForm(){ }
 
-  }
-
-  public FinancialSupportForm(int ID, String FirstName,  String LastName,  String SSN,  String ApplicantEmail,  String RecipientFirstName,  String RecipientLastName,  Date RecipientDateOfBirth,  String RecipientAlienNumber,  String RecipientEmail){
+  // Contructor to assign all values.
+  // Does not automatically assign an ID, made private because we should assign IDs internally. Use next contructor publically.
+  private FinancialSupportForm(int ID, String FirstName, String LastName, String SSN, String ApplicantEmail, String RecipientFirstName, String RecipientLastName, Date RecipientDateOfBirth, String RecipientAlienNumber, String RecipientEmail) {
     this.ID = ID;
     this.FirstName = FirstName;
     this.LastName = LastName;
@@ -37,6 +39,12 @@ public class FinancialSupportForm{
     this.RecipientDateOfBirth = RecipientDateOfBirth;
     this.RecipientAlienNumber = RecipientAlienNumber;
     this.RecipientEmail = RecipientEmail;
+  }
+
+  // This constructor automatically assigns a unique incremental ID
+  public FinancialSupportForm(String FirstName, String LastName, String SSN, String ApplicantEmail, String RecipientFirstName, String RecipientLastName, Date RecipientDateOfBirth, String RecipientAlienNumber, String RecipientEmail) {
+    this(idCounter, FirstName, LastName, SSN, ApplicantEmail, RecipientFirstName, RecipientLastName, RecipientDateOfBirth, RecipientAlienNumber, RecipientEmail);
+    idCounter ++;
   }
 
   //validation method

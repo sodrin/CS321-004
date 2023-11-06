@@ -10,11 +10,18 @@ public class WorkflowTableTester {
     // * Name tests for what we want to test
 
     // Test inserting and removing 3 forms with queue-like functionality
+    // This test proves functionality of:
+    // - FIFO queue functionality
+    // - Automatic removal from queue on method call
+    // These are pretty much all the things we need to test for to prove complete functionality.
     @Test
     void getReviewsInOrder() {
         FinancialSupportForm firstForm = Faker.getFakeFinancialSupportForm();
         FinancialSupportForm secondForm = Faker.getFakeFinancialSupportForm();
         FinancialSupportForm thirdForm = Faker.getFakeFinancialSupportForm();
+        firstForm.saveForm();
+        secondForm.saveForm();
+        thirdForm.saveForm();
         table.addPendingReview(firstForm);
         table.addPendingReview(secondForm);
         table.addPendingReview(thirdForm);
@@ -24,11 +31,15 @@ public class WorkflowTableTester {
     }
 
     // Test inserting and removing 3 forms with queue-like functionality
+    // Duplicate of above test for the approval queue
     @Test
     void getApprovalsInOrder() {
         FinancialSupportForm firstForm = Faker.getFakeFinancialSupportForm();
         FinancialSupportForm secondForm = Faker.getFakeFinancialSupportForm();
         FinancialSupportForm thirdForm = Faker.getFakeFinancialSupportForm();
+        firstForm.saveForm();
+        secondForm.saveForm();
+        thirdForm.saveForm();
         table.addPendingApproval(firstForm);
         table.addPendingApproval(secondForm);
         table.addPendingApproval(thirdForm);

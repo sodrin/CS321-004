@@ -9,6 +9,9 @@ public class Database {
 
     private HashMap<Integer, FinancialSupportForm> forms = new HashMap<Integer, FinancialSupportForm>();
     private int databaseSize = 0;
+
+    //  Hide constructor
+    private Database() { }
     
     // Returns null if the form does not exist
     public FinancialSupportForm getForm(int id) {

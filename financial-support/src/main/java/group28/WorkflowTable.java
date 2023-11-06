@@ -10,6 +10,9 @@ public class WorkflowTable{
   private Queue<Integer> pendingReviews = new LinkedBlockingQueue<Integer>();
   private Queue<Integer> pendingApprovals = new LinkedBlockingQueue<Integer>();
 
+  // Hide constructor
+  private WorkflowTable() { }
+
   // Returns null if the queue is empty
   public FinancialSupportForm getNextPendingReview(){
     Integer formID = pendingReviews.poll();

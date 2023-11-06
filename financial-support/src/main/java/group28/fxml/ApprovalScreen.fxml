@@ -14,14 +14,9 @@
 
 <FlowPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group28.ApprovalScreenController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="446.0">
+      <VBox alignment="TOP_CENTER" prefHeight="399.0" prefWidth="446.0">
          <children>
             <Button fx:id="nextFormButton" mnemonicParsing="false" onAction="#nextFormButtonPressed" text="Get Next Form for Approval" />
-            <Label fx:id="NO_MORE_FORMS_MSG" text="No more forms queued for approval!" textFill="RED" visible="false">
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
-            </Label>
             <GridPane alignment="TOP_CENTER" prefHeight="91.0" prefWidth="502.0" VBox.vgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.4000244140625" minWidth="10.0" prefWidth="160.4000244140625" />
@@ -77,7 +72,7 @@
                   <Button fx:id="approveButton" mnemonicParsing="false" onAction="#approveButtonPressed" text="Approve Form" />
               </buttons>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets />
                </VBox.margin>
             </ButtonBar>
          </children>

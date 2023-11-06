@@ -87,11 +87,11 @@ public class ApprovalScreen {
 			newWindow.show();
 
 			// TODO remove this, for testing only
-			for (int i = 0; i < 5; i ++) {
-				FinancialSupportForm form = Faker.getFakeFinancialSupportForm();
-				form.saveForm();
-				WorkflowTable.masterTable.addPendingApproval(form);
-			}
+			// for (int i = 0; i < 5; i ++) {
+			// 	FinancialSupportForm form = Faker.getFakeFinancialSupportForm();
+			// 	form.saveForm();
+			// 	WorkflowTable.masterTable.addPendingApproval(form);
+			// }
 
 			// Initialize the form's state
 			controller = fxmlView.getController();

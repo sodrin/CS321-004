@@ -7,8 +7,8 @@ public class WorkflowTable{
   // Singleton instance for consistant global access
   public static WorkflowTable masterTable = new WorkflowTable();
 
-  Queue<Integer> pendingReviews = new LinkedBlockingQueue<Integer>();
-  Queue<Integer> pendingApprovals = new LinkedBlockingQueue<Integer>();
+  private Queue<Integer> pendingReviews = new LinkedBlockingQueue<Integer>();
+  private Queue<Integer> pendingApprovals = new LinkedBlockingQueue<Integer>();
 
   // Returns null if the queue is empty
   public FinancialSupportForm getNextPendingReview(){

@@ -34,6 +34,12 @@ public class ApprovalScreenController {
     @FXML
     private Button approveButton;
 
+    private ApprovalScreen masterScreen;
+
+    public void setMasterScreen(ApprovalScreen screen) {
+        masterScreen = screen;
+    }
+
     // Load the information from an entire form into the text fields
     public void displayForm(FinancialSupportForm form) {
         setApplicantFirstName(form.FirstName);
@@ -130,21 +136,19 @@ public class ApprovalScreenController {
 
     public void nextFormButtonPressed() {
         System.out.println("Requesting new form...");
-        // TODO: Link to business object instead of generating fake form here
-        FinancialSupportForm fakeForm = Faker.getFakeFinancialSupportForm();
-        displayForm(fakeForm);
-        formMode();
+        if (masterScreen == null) return;
+        masterScreen.getNextForm();
     }
 
     public void reviewButtonPressed() {
         System.out.println("Sending current form back to review...");
-        clearForm();
-        noFormMode();
+        if (masterScreen == null) return;
+        masterScreen.sendFormToReview();
     }
 
     public void approveButtonPressed() {
         System.out.println("Approving current form...");
-        clearForm();
-        noFormMode();
+        if (masterScreen == null) return;
+        masterScreen.approveForm();
     }
 }

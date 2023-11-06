@@ -34,8 +34,12 @@ public class ApprovalScreenController {
     @FXML
     private Button approveButton;
 
+    // Link to screen that launched the controller
     private ApprovalScreen masterScreen;
 
+    // Called from the ApprovalScreen that launched this.
+    // We cann't pass in APprovalScreen form contructor because JavaFX creates this instance, 
+    // so we have to pass in ApprovalScreen instance after the fact.
     public void setMasterScreen(ApprovalScreen screen) {
         masterScreen = screen;
     }
@@ -134,18 +138,21 @@ public class ApprovalScreenController {
 
     // Event listeners for the buttons
 
+    // Calls corresponding parent ApprovalScreen method
     public void nextFormButtonPressed() {
         System.out.println("Requesting new form...");
         if (masterScreen == null) return;
         masterScreen.getNextForm();
     }
 
+    // Calls corresponding parent ApprovalScreen method
     public void reviewButtonPressed() {
         System.out.println("Sending current form back to review...");
         if (masterScreen == null) return;
         masterScreen.sendFormToReview();
     }
 
+    // Calls corresponding parent ApprovalScreen method
     public void approveButtonPressed() {
         System.out.println("Approving current form...");
         if (masterScreen == null) return;

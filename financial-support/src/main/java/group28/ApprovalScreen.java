@@ -11,10 +11,14 @@ import javafx.stage.Stage;
  */
 public class ApprovalScreen {
 
+	// For authentication / blame tracking in the future.
 	private int employeeId = -1;
+	// For keeping track of which form we're performing default actions on.
 	public int currentFormId = -1;
+	// For changing elements on the screen after the screen is launched.
 	private ApprovalScreenController controller;
 
+	// TODO authentication / login screen before main screen
 	public boolean authenticate(String username, String password, int employeeId) {
 		// TODO authentication here
 		boolean authenticated = true;
@@ -27,6 +31,7 @@ public class ApprovalScreen {
 		return false;
 	}
 	
+	// Called fron the controller on button press
 	public boolean getNextForm() {
 		if (controller == null) return false;
 		FinancialSupportForm nextForm = WorkflowTable.masterTable.getNextPendingApproval();
@@ -38,10 +43,12 @@ public class ApprovalScreen {
 		return false;
 	}
 
+	// We're always going to be referring to the current fomr anyway
 	public void approveForm() {
 		this.approveForm(currentFormId);
 	}
 
+	// Called fron the controller on button press
 	public void approveForm(int formId) {
 		// TODO set form status as approved
 		// TODO send Email to applicant
@@ -49,10 +56,12 @@ public class ApprovalScreen {
 		controller.noFormMode();
 	}
 
+	// We're always going to be referring to the current fomr anyway
 	public void sendFormToReview() {
 		this.sendFormToReview(currentFormId);
 	}
 
+	// Called from the controller on button press
 	public void sendFormToReview(int formId) {
 		WorkflowTable.masterTable.addPendingReview(FinancialSupportForm.getForm(formId));
 		controller.clearForm();

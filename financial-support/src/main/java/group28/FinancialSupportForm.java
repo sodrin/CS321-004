@@ -43,8 +43,12 @@ public class FinancialSupportForm{
 
   // This constructor automatically assigns a unique incremental ID
   public FinancialSupportForm(String FirstName, String LastName, String SSN, String ApplicantEmail, String RecipientFirstName, String RecipientLastName, Date RecipientDateOfBirth, String RecipientAlienNumber, String RecipientEmail) {
-    this(idCounter, FirstName, LastName, SSN, ApplicantEmail, RecipientFirstName, RecipientLastName, RecipientDateOfBirth, RecipientAlienNumber, RecipientEmail);
-    idCounter ++;
+    this(getNewUniqueId(), FirstName, LastName, SSN, ApplicantEmail, RecipientFirstName, RecipientLastName, RecipientDateOfBirth, RecipientAlienNumber, RecipientEmail);
+  }
+
+  // Static method here in case we want to change the ID generation later
+  private static int getNewUniqueId() {
+    return idCounter ++;
   }
 
   //validation method

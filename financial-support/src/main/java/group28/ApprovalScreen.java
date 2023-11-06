@@ -36,6 +36,7 @@ public class ApprovalScreen {
 		if (controller == null) return false;
 		FinancialSupportForm nextForm = WorkflowTable.masterTable.getNextPendingApproval();
 		if (nextForm != null) {
+			currentFormId = nextForm.getID();
 			controller.setNoMoreFormsMessageVisibility(false);
 			controller.displayForm(nextForm);
 			controller.formMode();

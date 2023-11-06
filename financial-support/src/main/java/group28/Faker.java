@@ -1,7 +1,5 @@
 package group28;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 import java.util.Random;
@@ -10,8 +8,18 @@ public class Faker {
 
     private static Random random = new Random();
 
+    // Randomly selects a form inside the database
+    // Returns that random form
+    public static FinancialSupportForm getRandomRealFinancialSupportForm() {
+        Integer[] keys = Database.getKeys();
+        int key = getRandomItem(keys);
+        return Database.getForm(key);
+    }
+
+    // Generates fake data and puts them in a new form
+    // Returns the fake form
     public static FinancialSupportForm getFakeFinancialSupportForm() {
-        return new FinancialSupportForm(0,
+        return new FinancialSupportForm(
             getRandomFirstName(),
             getRandomLastName(),
             getRandomSSN(),
@@ -20,7 +28,8 @@ public class Faker {
             getRandomLastName(),
             getRandomDateOfBirth(),
             getRandomAlienNumber(),
-            getRandomEmail());
+            getRandomEmail()
+        );
     }
 
     public static String getRandomFirstName() {

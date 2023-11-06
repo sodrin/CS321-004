@@ -17,6 +17,7 @@ public class ReviewScreen {
     
     public void showScreen(){
         Label label = new Label("This is the review screen!");
+        Label label2 = new Label("This is the review screen!2");
 
 		StackPane layout = new StackPane();
 		layout.getChildren().add(label);

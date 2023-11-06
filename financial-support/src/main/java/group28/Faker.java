@@ -11,9 +11,9 @@ public class Faker {
     // Randomly selects a form inside the database
     // Returns that random form
     public static FinancialSupportForm getRandomRealFinancialSupportForm() {
-        Integer[] keys = Database.getKeys();
+        Integer[] keys = Database.masterDatabase.getKeys();
         int key = getRandomItem(keys);
-        return Database.getForm(key);
+        return Database.masterDatabase.getForm(key);
     }
 
     // Generates fake data and puts them in a new form

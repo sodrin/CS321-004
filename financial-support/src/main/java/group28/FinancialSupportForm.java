@@ -62,12 +62,13 @@ public class FinancialSupportForm{
 
   //saveform method
   public boolean saveForm(){
-    return false;
+    Database.masterDatabase.setForm(this);
+    return true;
   }
 
   //getform method
   public static FinancialSupportForm getForm(int ID){
-    return null;
+    return Database.masterDatabase.getForm(ID);
   }
 
   public int getID() {

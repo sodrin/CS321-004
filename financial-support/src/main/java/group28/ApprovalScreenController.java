@@ -2,6 +2,7 @@ package group28;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class ApprovalScreenController {
@@ -33,6 +34,20 @@ public class ApprovalScreenController {
     private Button reviewButton;
     @FXML
     private Button approveButton;
+
+    // Message label for when there aren't forms left for approval
+    @FXML
+    private Label NO_MORE_FORMS_MSG;
+
+    // Link to screen that launched the controller
+    private ApprovalScreen masterScreen;
+
+    // Called from the ApprovalScreen that launched this.
+    // We cann't pass in APprovalScreen form contructor because JavaFX creates this instance, 
+    // so we have to pass in ApprovalScreen instance after the fact.
+    public void setMasterScreen(ApprovalScreen screen) {
+        masterScreen = screen;
+    }
 
     // Load the information from an entire form into the text fields
     public void displayForm(FinancialSupportForm form) {
@@ -125,26 +140,31 @@ public class ApprovalScreenController {
         approveButton.setDisable(disable);
     }
 
+    public void setNoMoreFormsMessageVisibility(boolean visible) {
+        NO_MORE_FORMS_MSG.setVisible(visible);
+    }
+
 
     // Event listeners for the buttons
 
+    // Calls corresponding parent ApprovalScreen method
     public void nextFormButtonPressed() {
         System.out.println("Requesting new form...");
-        // TODO: Link to business object instead of generating fake form here
-        FinancialSupportForm fakeForm = Faker.getFakeFinancialSupportForm();
-        displayForm(fakeForm);
-        formMode();
+        if (masterScreen == null) return;
+        masterScreen.getNextForm();
     }
 
+    // Calls corresponding parent ApprovalScreen method
     public void reviewButtonPressed() {
         System.out.println("Sending current form back to review...");
-        clearForm();
-        noFormMode();
+        if (masterScreen == null) return;
+        masterScreen.sendFormToReview();
     }
 
+    // Calls corresponding parent ApprovalScreen method
     public void approveButtonPressed() {
         System.out.println("Approving current form...");
-        clearForm();
-        noFormMode();
+        if (masterScreen == null) return;
+        masterScreen.approveForm();
     }
 }

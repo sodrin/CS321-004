@@ -21,6 +21,7 @@ public class Database {
         return newForm;
     }
 
+    // Returns an array of all IDs of forms that exist in the database
     public static Integer[] getKeys() {
         return forms.keySet().toArray(new Integer[]{});
     }

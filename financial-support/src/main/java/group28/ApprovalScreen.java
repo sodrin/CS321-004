@@ -10,6 +10,27 @@ import javafx.stage.Stage;
  * ApprovalScreen handles creation of the window for the approval process.
  */
 public class ApprovalScreen {
+
+	private int employeeId;
+	public int currentFormId;
+
+	public boolean authenticate(String username, String password, int employeeId) {
+		// TODO
+		return false;
+	}
+	
+	public boolean getNextForm() {
+		// TODO
+		return false;
+	}
+
+	public void approveForm(int formId) {
+		// TODO
+	}
+
+	public void sendFormToReview(int formId) {
+		// TODO
+	}
     
 	// Entry code for the ApprovalScreen class
     public void showScreen(){

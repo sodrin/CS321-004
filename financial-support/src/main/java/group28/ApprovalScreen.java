@@ -36,11 +36,14 @@ public class ApprovalScreen {
 		if (controller == null) return false;
 		FinancialSupportForm nextForm = WorkflowTable.masterTable.getNextPendingApproval();
 		if (nextForm != null) {
+			controller.setNoMoreFormsMessageVisibility(false);
 			controller.displayForm(nextForm);
 			controller.formMode();
 			return true;
+		} else {
+			controller.setNoMoreFormsMessageVisibility(true);
+			return false;
 		}
-		return false;
 	}
 
 	// We're always going to be referring to the current fomr anyway
@@ -81,6 +84,13 @@ public class ApprovalScreen {
 			newWindow.setTitle("Form Approval UI");
 			newWindow.setScene(scene);
 			newWindow.show();
+
+			// TODO remove this, for testing only
+			for (int i = 0; i < 5; i ++) {
+				FinancialSupportForm form = Faker.getFakeFinancialSupportForm();
+				form.saveForm();
+				WorkflowTable.masterTable.addPendingApproval(form);
+			}
 
 			// Initialize the form's state
 			controller = fxmlView.getController();

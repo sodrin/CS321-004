@@ -2,6 +2,7 @@ package group28;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class ApprovalScreenController {
@@ -33,6 +34,10 @@ public class ApprovalScreenController {
     private Button reviewButton;
     @FXML
     private Button approveButton;
+
+    // Message label for when there aren't forms left for approval
+    @FXML
+    private Label NO_MORE_FORMS_MSG;
 
     // Link to screen that launched the controller
     private ApprovalScreen masterScreen;
@@ -133,6 +138,10 @@ public class ApprovalScreenController {
 
     public void setDisableApproveButton(boolean disable) {
         approveButton.setDisable(disable);
+    }
+
+    public void setNoMoreFormsMessageVisibility(boolean visible) {
+        NO_MORE_FORMS_MSG.setVisible(visible);
     }
 
 

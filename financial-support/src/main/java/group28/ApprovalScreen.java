@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+// Test comment
+
 /**
  * ApprovalScreen handles creation of the window for the approval process.
  */

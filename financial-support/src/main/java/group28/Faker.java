@@ -36,7 +36,9 @@ public class Faker {
         return getRandomItem(new String[] {
             "John", "Jane", "Derek", "Diana",
             "George", "Donald", "Georgina", "Travis",
-            "Luther", "Mark", "Shane", "Prince"
+            "Luther", "Mark", "Shane", "Prince",
+            "Fredrick", "Price", "Daniel", "Raul",
+            "Selena", "James", "Lucas", "Ethan"
         });
     }
 
@@ -44,7 +46,10 @@ public class Faker {
         return getRandomItem(new String[] {
             "Smith", "Doe", "Flanders", "Rockwell",
             "Tiny", "Jackson", "Tynell", "Rich",
-            "Ahab", "Newman", "Brighton", "Wallace"
+            "Ahab", "Newman", "Brighton", "Wallace",
+            "Kensington", "Dames", "Shagatov",
+            "Kissinger", "Reston", "Murtons", "Neptar",
+            "Nguyen", "Vasilovich", "Guy", "Merchant"
         });
     }
 
@@ -66,11 +71,14 @@ public class Faker {
         String[] words = {
             "Fish", "Fruit", "Waffle", "Pancake", "Garage", "Music",
             "Dusty", "Adventure", "Joy", "Long", "Cool", "Panda",
-            "Guitar", "Tooter", "Salmon", "Quake", "Roblox"
+            "Guitar", "Tooter", "Salmon", "Quake", "Roblox", "Monster",
+            "Tuber", "Fantasy", "Lawyer", "BBQ", "Fantastic", "Jupiter",
+            "Loyal", "Gravel", "Druid", "Rain", "Flash", "Swivel"
         };
         String[] domains = {
             "gmail.com", "hotmail.com", "outlook.com", "gmu.edu",
-            "aol.com", "yahoo.co.uk", "msn.com"
+            "aol.com", "yahoo.co.uk", "msn.com",
+            "mail.biz", "free-email-now.xyz"
         };
 
         String result = "";

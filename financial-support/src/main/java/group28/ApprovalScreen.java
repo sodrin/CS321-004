@@ -28,7 +28,6 @@ public class ApprovalScreen {
 	}
 	
 	public boolean getNextForm() {
-		// TODO
 		if (controller == null) return false;
 		FinancialSupportForm nextForm = WorkflowTable.masterTable.getNextPendingApproval();
 		if (nextForm != null) {
@@ -44,7 +43,8 @@ public class ApprovalScreen {
 	}
 
 	public void approveForm(int formId) {
-		// TODO
+		// TODO set form status as approved
+		// TODO send Email to applicant
 		controller.clearForm();
 		controller.noFormMode();
 	}
@@ -52,9 +52,9 @@ public class ApprovalScreen {
 	public void sendFormToReview() {
 		this.sendFormToReview(currentFormId);
 	}
-	
+
 	public void sendFormToReview(int formId) {
-		// TODO
+		WorkflowTable.masterTable.addPendingReview(FinancialSupportForm.getForm(formId));
 		controller.clearForm();
 		controller.noFormMode();
 	}

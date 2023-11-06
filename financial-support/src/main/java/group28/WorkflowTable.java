@@ -1,34 +1,35 @@
 package group28;
 
 import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class WorkflowTable{
-  Queue<Integer> pendingReviews;
-  Queue<Integer> pendingApprovals;
+  Queue<Integer> pendingReviews = new LinkedBlockingQueue<Integer>();
+  Queue<Integer> pendingApprovals = new LinkedBlockingQueue<Integer>();
 
   FinancialSupportForm BO = new FinancialSupportForm();
 
+  // Returns null if the queue is empty
   FinancialSupportForm getNextPendingReview(){
     Integer formID = pendingReviews.poll();
     if (formID == null) return null;
-    // TODO: We need some static way to get forms from form IDs, unless
-    //   we are using one global BusinessObject instance.
-    return BO.getForm(formID);
+    return FinancialSupportForm.getForm(formID);
   }
 
+  // Returns null if the queue is empty
   FinancialSupportForm getNextPendingApproval(){
     Integer formID = pendingApprovals.poll();
     if (formID == null) return null;
-    return BO.getForm(formID);
+    return FinancialSupportForm.getForm(formID);
   }
 
+  // Returns true if the element was added successfully
   Boolean addPendingReview(FinancialSupportForm form){
-    Boolean result = pendingReviews.offer(form.ID);
-    return result;
+    return pendingReviews.offer(form.ID);
   }
 
+  // Returns true if the element was added successfully
   Boolean addPendingApproval(FinancialSupportForm form){
-    Boolean result = pendingApprovals.offer(form.ID);
-    return result;
+    return pendingApprovals.offer(form.ID);
   }
 }

@@ -81,7 +81,8 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </ButtonBar>
-            <Label fx:id="NO_MORE_FORMS_MSG1" text="Currently reviewing forms" />
+            <Label fx:id="NO_MORE_FORMS_MSG1" text="Form updated" visible="false" />
+            <Label fx:id="NO_MORE_FORMS_MSG2" text="Inputs validated." textFill="#2cff00" visible="false" />
          </children>
          <FlowPane.margin>
             <Insets top="10.0" />

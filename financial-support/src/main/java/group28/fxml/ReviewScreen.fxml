@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group28.ApprovalScreenController">
+<FlowPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group28.ReviewScreenController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="446.0">
          <children>
@@ -73,16 +73,16 @@
             </GridPane>
             <ButtonBar buttonMinWidth="100.0" buttonOrder="U" prefHeight="40.0" prefWidth="200.0" VBox.vgrow="NEVER">
               <buttons>
-                  <Button fx:id="reviewButton" accessibleHelp="Make the form go forward to the approval step." accessibleText="Send back to review" mnemonicParsing="false" onAction="#reviewButtonPressed" text="Send to Approval" textFill="#008d17" />
-                  <Button fx:id="approveButton" mnemonicParsing="false" onAction="#approveButtonPressed" text="Deny Form" textFill="#eb0404" />
-                  <Button fx:id="approveButton1" mnemonicParsing="false" onAction="#approveButtonPressed" text="Validate Inputs" textFill="#000700" />
+                  <Button fx:id="reviewButton" accessibleHelp="Make the form go forward to the approval step." accessibleText="Send forward to approval" mnemonicParsing="false" onAction="#reviewButtonPressed" text="Send to Approval" textFill="#008d17" />
+                  <Button fx:id="denyButton" mnemonicParsing="false" onAction="#denyButtonPressed" text="Deny Form" textFill="#eb0404" />
+                  <Button fx:id="validateButton" mnemonicParsing="false" onAction="#validateButtonPressed" text="Validate Inputs" textFill="#000700" />
               </buttons>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </ButtonBar>
-            <Label fx:id="NO_MORE_FORMS_MSG1" text="Form updated" visible="false" />
-            <Label fx:id="NO_MORE_FORMS_MSG2" text="Inputs validated." textFill="#2cff00" visible="false" />
+            <Label fx:id="UPDATE_MSG" text="Form updated" visible="false" />
+            <Label fx:id="VALIDATE_MSG" text="Inputs validated." textFill="#2cff00" visible="false" />
          </children>
          <FlowPane.margin>
             <Insets top="10.0" />

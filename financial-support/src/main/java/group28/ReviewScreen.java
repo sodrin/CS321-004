@@ -31,10 +31,18 @@ public class ReviewScreen {
 		newWindow.show();
     }
 
-	public boolean sendToApproval(){
+	public boolean sendFormToApproval(){
 		return true;
 	}
 	public boolean denyForm(){
+		return true;
+	}
+
+	public boolean validateForm(){
+		return true;
+	}
+
+	public boolean getNextForm(){
 		return true;
 	}
 }

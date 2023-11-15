@@ -2,7 +2,6 @@ package group28;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -123,8 +122,6 @@ public class EntryScreen {
         //currentForm = new FinancialSupportForm(rand.nextInt(999999), FirstName, LastName, SSN, ApplicantEmail, RecipientFirstName, RecipientLastName, date, RecipientAlienNumber, RecipientEmail);
         currentForm = new FinancialSupportForm(FirstName, LastName, SSN, ApplicantEmail, RecipientFirstName, RecipientLastName, date, RecipientAlienNumber, RecipientEmail);
 
-        currentForm.validate();
-        currentForm.saveForm();
-        return true;
+        return currentForm.validate() && currentForm.saveForm();
     }
 }

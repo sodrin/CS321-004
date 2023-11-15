@@ -14,35 +14,69 @@ import javafx.stage.Stage;
 
 public class ReviewScreen {
 	private FinancialSupportForm currentForm;
+	private ReviewScreenController controller;
+	// For authentication / blame tracking in the future.
+	private int employeeId = -1;
+	// For keeping track of which form we're performing default actions on.
+	public int currentFormId = -1;
 
     public void showScreen(){
-        Label label = new Label("This is the review screen!");
+		// Try/catch block because we read for a file that _should_ always exist, but technically could be not there
+		try {
+			// Load the FXML template into the scene
+			FXMLLoader fxmlView = new FXMLLoader(getClass().getResource("fxml/ReviewScreen.fxml"));
+			Scene scene = new Scene(fxmlView.load());
 
-		StackPane layout = new StackPane();
-		layout.getChildren().add(label);
+			// Set the stage and show the window
+			Stage newWindow = new Stage();
+			newWindow.setTitle("Form Approval UI");
+			newWindow.setScene(scene);
+			newWindow.show();
 
-		Scene scene = new Scene(layout, 230, 100);
-
-
-        Stage newWindow = new Stage();
-		newWindow.setTitle("Review");
-		newWindow.setScene(scene);
-
-		newWindow.show();
+			// Initialize the form's state
+			controller = fxmlView.getController();
+			controller.setMasterScreen(this);
+			controller.clearForm();
+			controller.noFormMode();
+		} catch (IOException e) {
+			// Error loading the FXML, can't load the screen.
+			System.out.println("Error loading the ReviewScreen.fxml file. Make sure it exists!");
+			e.printStackTrace();
+		}
     }
-
-	public boolean sendFormToApproval(){
-		return true;
+	public boolean getNextForm() {
+		if (controller == null) return false;
+		FinancialSupportForm nextForm = WorkflowTable.masterTable.getNextPendingReview();
+		if (nextForm != null) {
+			currentFormId = nextForm.getID();
+			controller.setNoMoreFormsMessageVisibility(false);
+			controller.displayForm(nextForm);
+			controller.formMode();
+			return true;
+		} else {
+			controller.setNoMoreFormsMessageVisibility(true);
+			return false;
+		}
 	}
-	public boolean denyForm(){
-		return true;
+
+	public void sendFormToApproval() {
+		this.sendFormToApproval(currentFormId);
+	}
+	public void sendFormToApproval(int formId){
+		WorkflowTable.masterTable.addPendingApproval(FinancialSupportForm.getForm(formId));
+		controller.clearForm();
+		controller.noFormMode();
+	}
+
+	public void denyForm() {
+		this.denyForm(currentFormId);
+	}
+	public void denyForm(int formId){
+		controller.clearForm();
+		controller.noFormMode();
 	}
 
 	public boolean validateForm(){
-		return true;
-	}
-
-	public boolean getNextForm(){
 		return true;
 	}
 }

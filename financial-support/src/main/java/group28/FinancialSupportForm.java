@@ -56,7 +56,7 @@ public class FinancialSupportForm{
     //date representing 18 years ago
     Date requirement = new Date(2005, 10, 18);
     Date comparison = this.RecipientDateOfBirth;
-    boolean result = comparison.after(requirement);
+    boolean result = requirement.after(comparison);
     return result;
   }
 

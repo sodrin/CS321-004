@@ -40,9 +40,10 @@ public class ReviewScreenController {
     // Message label for when there aren't forms left for review
     @FXML
     private Label NO_MORE_FORMS_MSG;
-    //Message label for when form has inputs validated again.
+    // Message label for when form has inputs validated again.
     private Label VALIDATE_MSG;
-    //Message label for when form has been updated by being sent to approval or denied.
+    // Message label for when form has been updated by being sent to approval or
+    // denied.
     private Label UPDATE_MSG;
 
     // Link to screen that launched the controller
@@ -79,7 +80,8 @@ public class ReviewScreenController {
         setRecipientEmail("N/A");
     }
 
-    // Form mode disables the next form request button, and enables the decision buttons
+    // Form mode disables the next form request button, and enables the decision
+    // buttons
     public void formMode() {
         setDisableNextFormButton(true);
         setDisableDenyButton(false);
@@ -87,7 +89,8 @@ public class ReviewScreenController {
         setDisableValidateButton(false);
     }
 
-    // No Form mode enables the next form request button, and disables the decision buttons
+    // No Form mode enables the next form request button, and disables the decision
+    // buttons
     public void noFormMode() {
         setDisableNextFormButton(false);
         setDisableDenyButton(true);
@@ -133,7 +136,6 @@ public class ReviewScreenController {
         RECIPIENT_EMAIL.setText(newString);
     }
 
-
     public void setDisableNextFormButton(boolean disable) {
         nextFormButton.setDisable(disable);
     }
@@ -154,34 +156,45 @@ public class ReviewScreenController {
         NO_MORE_FORMS_MSG.setVisible(visible);
     }
 
+    public void setFormUpdateMessageVisibility(boolean visible) {
+        UPDATE_MSG.setVisible(visible);
+    }
+
+    public void setValidateMessageVisibility(boolean visible) {
+        VALIDATE_MSG.setVisible(visible);
+    }
 
     // Event listeners for the buttons
 
     // Calls corresponding parent ReviewScreen method
     public void nextFormButtonPressed() {
         System.out.println("Requesting new form...");
-        if (masterScreen == null) return;
+        if (masterScreen == null)
+            return;
         masterScreen.getNextForm();
     }
 
     // Calls corresponding parent ReviewScreen method
     public void reviewButtonPressed() {
         System.out.println("Sending current form to approval...");
-        if (masterScreen == null) return;
+        if (masterScreen == null)
+            return;
         masterScreen.sendFormToApproval();
     }
 
     // Calls corresponding parent ReviewScreen method
     public void denyButtonPressed() {
         System.out.println("Denying current form...");
-        if (masterScreen == null) return;
+        if (masterScreen == null)
+            return;
         masterScreen.denyForm();
     }
 
     // Calls corresponding parent ReviewScreen method
     public void validateButtonPressed() {
         System.out.println("Validating inputs...");
-        if (masterScreen == null) return;
+        if (masterScreen == null)
+            return;
         masterScreen.validateForm();
     }
 }

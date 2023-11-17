@@ -72,6 +72,7 @@ public class ReviewScreen {
 		this.denyForm(currentFormId);
 	}
 	public void denyForm(int formId){
+		FinancialSupportForm.sendDenialEmail(currentFormId);
 		controller.clearForm();
 		controller.noFormMode();
 	}

@@ -51,6 +51,20 @@ public class FinancialSupportForm{
     return idCounter ++;
   }
 
+  // Send E-Mail to applicants notifying them of form APPROVAL
+  public static boolean sendApprovalEmail(int formId) {
+    String email = "Congratulations! Your form was approved.";
+    // sendEmail(getForm(formId).applicantEmail, email);
+    return true;
+  }
+
+  // Send E-Mail to applicants notifying them of form DENIAL
+  public static boolean sendDenialEmail(int formId) {
+    String email = "Sorry, but your form has been denied.";
+    // sendEmail(getForm(formId).applicantEmail, email);
+    return true;
+  }
+
   //validation method
   public boolean validate(){
     //date representing 18 years ago

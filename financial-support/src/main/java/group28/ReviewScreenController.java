@@ -173,7 +173,7 @@ public class ReviewScreenController {
 
     // Calls corresponding parent ReviewScreen method
     public void denyButtonPressed() {
-        System.out.println("Approving current form...");
+        System.out.println("Denying current form...");
         if (masterScreen == null) return;
         masterScreen.denyForm();
     }

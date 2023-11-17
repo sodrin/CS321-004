@@ -57,8 +57,7 @@ public class ApprovalScreen {
 
 	// Called fron the controller on button press
 	public void approveForm(int formId) {
-		// TODO set form status as approved
-		// TODO send Email to applicant
+		FinancialSupportForm.sendApprovalEmail(currentFormId);
 		controller.clearForm();
 		controller.noFormMode();
 	}

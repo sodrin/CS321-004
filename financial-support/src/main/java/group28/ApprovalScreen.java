@@ -1,6 +1,7 @@
 package group28;
 
 import java.io.IOException;
+import java.net.URL;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -79,7 +80,9 @@ public class ApprovalScreen {
 		// Try/catch block because we read for a file that _should_ always exist, but technically could be not there
 		try {
 			// Load the FXML template into the scene
-			FXMLLoader fxmlView = new FXMLLoader(getClass().getResource("fxml/ApprovalScreen.fxml"));
+			URL fxmlFile = getClass().getResource("/fxml/ApprovalScreen.fxml");
+			System.out.println("FXML FILE: " + fxmlFile);
+			FXMLLoader fxmlView = new FXMLLoader(fxmlFile);
 			Scene scene = new Scene(fxmlView.load());
 
 			// Set the stage and show the window

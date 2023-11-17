@@ -24,7 +24,7 @@ public class ReviewScreen {
 		// Try/catch block because we read for a file that _should_ always exist, but technically could be not there
 		try {
 			// Load the FXML template into the scene
-			FXMLLoader fxmlView = new FXMLLoader(getClass().getResource("fxml/ReviewScreen.fxml"));
+			FXMLLoader fxmlView = new FXMLLoader(getClass().getResource("/fxml/ReviewScreen.fxml"));
 			Scene scene = new Scene(fxmlView.load());
 
 			// Set the stage and show the window

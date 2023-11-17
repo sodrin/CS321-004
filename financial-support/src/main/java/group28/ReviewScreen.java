@@ -20,8 +20,9 @@ public class ReviewScreen {
 	// For keeping track of which form we're performing default actions on.
 	public int currentFormId = -1;
 
-    public void showScreen(){
-		// Try/catch block because we read for a file that _should_ always exist, but technically could be not there
+	public void showScreen() {
+		// Try/catch block because we read for a file that _should_ always exist, but
+		// technically could be not there
 		try {
 			// Load the FXML template into the scene
 			FXMLLoader fxmlView = new FXMLLoader(getClass().getResource("/fxml/ReviewScreen.fxml"));
@@ -29,7 +30,7 @@ public class ReviewScreen {
 
 			// Set the stage and show the window
 			Stage newWindow = new Stage();
-			newWindow.setTitle("Form Approval UI");
+			newWindow.setTitle("Form Review UI");
 			newWindow.setScene(scene);
 			newWindow.show();
 
@@ -43,9 +44,11 @@ public class ReviewScreen {
 			System.out.println("Error loading the ReviewScreen.fxml file. Make sure it exists!");
 			e.printStackTrace();
 		}
-    }
+	}
+
 	public boolean getNextForm() {
-		if (controller == null) return false;
+		if (controller == null)
+			return false;
 		FinancialSupportForm nextForm = WorkflowTable.masterTable.getNextPendingReview();
 		if (nextForm != null) {
 			currentFormId = nextForm.getID();
@@ -62,8 +65,10 @@ public class ReviewScreen {
 	public void sendFormToApproval() {
 		this.sendFormToApproval(currentFormId);
 	}
-	public void sendFormToApproval(int formId){
+
+	public void sendFormToApproval(int formId) {
 		WorkflowTable.masterTable.addPendingApproval(FinancialSupportForm.getForm(formId));
+		controller.setFormUpdateMessageVisibility(true);
 		controller.clearForm();
 		controller.noFormMode();
 	}
@@ -71,13 +76,15 @@ public class ReviewScreen {
 	public void denyForm() {
 		this.denyForm(currentFormId);
 	}
-	public void denyForm(int formId){
+
+	public void denyForm(int formId) {
 		FinancialSupportForm.sendDenialEmail(currentFormId);
+		controller.setFormUpdateMessageVisibility(true);
 		controller.clearForm();
 		controller.noFormMode();
 	}
 
-	public boolean validateForm(){
-		return true;
+	public void validateForm() {
+		controller.setValidateMessageVisibility(true);
 	}
 }

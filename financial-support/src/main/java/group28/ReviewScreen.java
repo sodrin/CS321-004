@@ -68,7 +68,7 @@ public class ReviewScreen {
 
 	public void sendFormToApproval(int formId) {
 		WorkflowTable.masterTable.addPendingApproval(FinancialSupportForm.getForm(formId));
-		controller.setFormUpdateMessageVisibility(true);
+		controller.setApprovalUpdateMessageVisibility(true);
 		controller.clearForm();
 		controller.noFormMode();
 	}
@@ -79,7 +79,7 @@ public class ReviewScreen {
 
 	public void denyForm(int formId) {
 		FinancialSupportForm.sendDenialEmail(currentFormId);
-		controller.setFormUpdateMessageVisibility(true);
+		controller.setDenyUpdateMessageVisibility(true);
 		controller.clearForm();
 		controller.noFormMode();
 	}

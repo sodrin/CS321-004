@@ -41,9 +41,11 @@ public class ReviewScreenController {
     @FXML
     private Label NO_MORE_FORMS_MSG;
     // Message label for when form has inputs validated again.
+    @FXML
     private Label VALIDATE_MSG;
     // Message label for when form has been updated by being sent to approval or
     // denied.
+    @FXML
     private Label UPDATE_MSG;
 
     // Link to screen that launched the controller

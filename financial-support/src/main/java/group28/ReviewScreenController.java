@@ -160,6 +160,16 @@ public class ReviewScreenController {
         UPDATE_MSG.setVisible(visible);
     }
 
+    public void setApprovalUpdateMessageVisibility(boolean visible) {
+        UPDATE_MSG.setText("Form has been sent to approval.");
+        UPDATE_MSG.setVisible(visible);
+    }
+
+    public void setDenyUpdateMessageVisibility(boolean visible) {
+        UPDATE_MSG.setText("Form is denied. Email sent to applicant.");
+        UPDATE_MSG.setVisible(visible);
+    }
+
     public void setValidateMessageVisibility(boolean visible) {
         VALIDATE_MSG.setVisible(visible);
     }

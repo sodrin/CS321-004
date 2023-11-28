@@ -6,10 +6,12 @@ import org.junit.jupiter.api.Test;
 public class FinancialSupportFormTester {
 
     FinancialSupportForm form = new FinancialSupportForm();
+    
 
     @Test
     void saveFormTest(){
         
+        form.setID(1);
         assertEquals(true, form.saveForm());
 
         form.setID(123);
@@ -20,8 +22,10 @@ public class FinancialSupportFormTester {
 
     @Test
     void getFormTest(){
-        assertEquals(false, FinancialSupportForm.getForm(99));
+        assertEquals(null, FinancialSupportForm.getForm(99));
 
-        assertEquals(true, FinancialSupportForm.getForm(123));
+        form.setID(123);
+        form.saveForm();
+        assertEquals(form, FinancialSupportForm.getForm(123));
     }
 }

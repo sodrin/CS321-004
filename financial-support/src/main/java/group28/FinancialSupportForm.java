@@ -78,6 +78,8 @@ public class FinancialSupportForm{
 
   //saveform method
   public boolean saveForm(){
+    if(Database.masterDatabase.getForm(this.ID) != null)
+      return false;
     Database.masterDatabase.setForm(this);
     return true;
   }

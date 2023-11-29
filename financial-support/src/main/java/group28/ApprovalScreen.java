@@ -33,6 +33,11 @@ public class ApprovalScreen {
 
 		return false;
 	}
+
+	// Sets the controller manually, for testing
+	public void setController(ApprovalScreenController newController) {
+		this.controller = newController;
+	}
 	
 	// Called fron the controller on button press
 	public boolean getNextForm() {
@@ -40,12 +45,20 @@ public class ApprovalScreen {
 		FinancialSupportForm nextForm = WorkflowTable.masterTable.getNextPendingApproval();
 		if (nextForm != null) {
 			currentFormId = nextForm.getID();
-			controller.setNoMoreFormsMessageVisibility(false);
-			controller.displayForm(nextForm);
-			controller.formMode();
+			try {
+				controller.setNoMoreFormsMessageVisibility(false);
+				controller.displayForm(nextForm);
+				controller.formMode();
+			} catch (NullPointerException e) {
+				System.out.println("Warning: Controller threw NullPointerException");
+			}
 			return true;
 		} else {
-			controller.setNoMoreFormsMessageVisibility(true);
+			try {
+				controller.setNoMoreFormsMessageVisibility(true);
+			} catch (NullPointerException e) {
+				System.out.println("Warning: Controller threw NullPointerException");
+			}
 			return false;
 		}
 	}
@@ -58,8 +71,12 @@ public class ApprovalScreen {
 	// Called fron the controller on button press
 	public void approveForm(int formId) {
 		FinancialSupportForm.sendApprovalEmail(currentFormId);
-		controller.clearForm();
-		controller.noFormMode();
+		try {
+			controller.clearForm();
+			controller.noFormMode();
+		} catch (NullPointerException e) {
+			System.out.println("Warning: Controller threw NullPointerException");
+		}
 	}
 
 	// We're always going to be referring to the current fomr anyway
@@ -70,8 +87,12 @@ public class ApprovalScreen {
 	// Called from the controller on button press
 	public void sendFormToReview(int formId) {
 		WorkflowTable.masterTable.addPendingReview(FinancialSupportForm.getForm(formId));
-		controller.clearForm();
-		controller.noFormMode();
+		try {
+			controller.clearForm();
+			controller.noFormMode();
+		} catch (NullPointerException e) {
+			System.out.println("Warning: Controller threw NullPointerException");
+		}
 	}
     
 	// Entry code for the ApprovalScreen class
@@ -89,13 +110,6 @@ public class ApprovalScreen {
 			newWindow.setTitle("Form Approval UI");
 			newWindow.setScene(scene);
 			newWindow.show();
-
-			// TODO remove this, for testing only
-			// for (int i = 0; i < 5; i ++) {
-			// 	FinancialSupportForm form = Faker.getFakeFinancialSupportForm();
-			// 	form.saveForm();
-			// 	WorkflowTable.masterTable.addPendingApproval(form);
-			// }
 
 			// Initialize the form's state
 			controller = fxmlView.getController();

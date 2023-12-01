@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.*;
 
 public class ReviewScreenController {
 
@@ -170,6 +171,18 @@ public class ReviewScreenController {
     public void setDenyUpdateMessageVisibility(boolean visible) {
         UPDATE_MSG.setText("Form is denied. Email sent to applicant.");
         UPDATE_MSG.setVisible(visible);
+    }
+
+    public void setValidInputMessageVisibility(boolean visible) {
+        VALIDATE_MSG.setText("Inputs validated.");
+        VALIDATE_MSG.setTextFill(Color.DARKGREEN);
+        VALIDATE_MSG.setVisible(visible);
+    }
+
+    public void setInvalidInputMessageVisibility(boolean visible) {
+        VALIDATE_MSG.setText("Some inputs are incorrectly formatted!");
+        VALIDATE_MSG.setTextFill(Color.RED);
+        VALIDATE_MSG.setVisible(visible);
     }
 
     public void setValidateMessageVisibility(boolean visible) {

@@ -50,6 +50,7 @@ public class ReviewScreen {
 		if (controller == null)
 			return false;
 		FinancialSupportForm nextForm = WorkflowTable.masterTable.getNextPendingReview();
+		currentForm = nextForm;
 		if (nextForm != null) {
 			currentFormId = nextForm.getID();
 			controller.setNoMoreFormsMessageVisibility(false);
@@ -71,6 +72,7 @@ public class ReviewScreen {
 		controller.setApprovalUpdateMessageVisibility(true);
 		controller.clearForm();
 		controller.noFormMode();
+		currentForm = null;
 	}
 
 	public void denyForm() {
@@ -82,9 +84,14 @@ public class ReviewScreen {
 		controller.setDenyUpdateMessageVisibility(true);
 		controller.clearForm();
 		controller.noFormMode();
+		currentForm = null;
 	}
 
 	public void validateForm() {
-		controller.setValidateMessageVisibility(true);
+		if (currentForm.validate() == true) {
+			controller.setValidInputMessageVisibility(true);
+		} else {
+			controller.setInvalidInputMessageVisibility(true);
+		}
 	}
 }
